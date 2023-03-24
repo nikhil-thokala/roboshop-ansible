@@ -21,8 +21,8 @@
 
 - name: Create roboshop config in Nginx
   ansible.builtin.copy:
-    src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
+    src: mongodb.repo
+    dest: /etc/nginx/default.d/mongodb.repo
 
 - name: Start Nginx service
   ansible.builtin.systemd:
