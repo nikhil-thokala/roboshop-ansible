@@ -1,17 +1,3 @@
-
-#print_head "Loading Schema"
-#mongo --host mongodb-dev.devopsjob.online </app/schema/${component}.js &>>${log_file}
-#status_check $?
-#elif [ "${schema_type}" == "mysql" ]; then
-#print_head "Installing MySQl Client"
-#yum install mysql -y  &>>${log_file}
-#status_check $?
-#
-#print_head "Load Schema"
-#mysql -h mysql-dev.devopsjob.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql &>>${log_file}
-#status_check $?
-#fi
-#}
 - name: MongoDB schema
   when: schema_type == "mongo"
   block:
@@ -21,7 +7,7 @@
         dest: /etc/yum.repos.d/mongodb.repo
 
     - name: Install MongoDB client
-      ansible.builtin.module:
+      ansible.builtin.yum:
         name: mongodb-org-shell
         state: installed
 
@@ -37,5 +23,5 @@
         state: installed
 
     - name: Load schema
-      ansible.builtin.shell: mysql -h mysql-dev.devopsjob.online -uroot -pRobobshop@1 < /app/schema/{{component}}.sql
+      ansible.builtin.shell: mysql -h mysql-dev.devopsjob.online -uroot -pRobobshop@1 </app/schema/{{component}}.sql
 
