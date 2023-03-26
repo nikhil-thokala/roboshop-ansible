@@ -1,21 +1,3 @@
-#print_head "Installing Maven"
-#yum install maven -y &>>${log_file}
-#status_check $?
-#
-#  app_prereq_setup
-#
-#    print_head "download dependencies & package"
-#    mvn clean package &>>${log_file}
-#    mv target/${component}-1.0.jar ${component}.jar &>>${log_file}
-#    status_check $?
-#
-#  # Schema Setup Function
-#    schema_setup
-#
-#  # SystemD Function
-#    systemd_setup
-#}
-
 - name: Install Maven
   ansible.builtin.yum:
     name: maven
