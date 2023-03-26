@@ -19,10 +19,15 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: Create roboshop config in Nginx
-  ansible.builtin.copy:
-    src: mongodb.repo
-    dest: /etc/nginx/default.d/mongodb.repo
+- name: Create Config in Nginx
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/roboshop.conf
+
+- name: Create RoboShop Config in Nginx
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: Start Nginx service
   ansible.builtin.systemd:
