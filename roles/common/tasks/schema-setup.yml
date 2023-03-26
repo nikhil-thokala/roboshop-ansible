@@ -15,7 +15,7 @@
       ansible.builtin.shell: mongo --host mongodb-dev.devopsjob.online </app/schema/{{component}}.js
 
 - name: MySQL schema
-  when: schema_type == "mySQL"
+  when: schema_type == "mysql"
   block:
     - name: Install MySQL client
       ansible.builtin.yum:
@@ -23,5 +23,5 @@
         state: installed
 
     - name: Load schema
-      ansible.builtin.shell: mysql -h mysql-dev.devopsjob.online -uroot -pRobobshop@1 </app/schema/{{component}}.sql
+      ansible.builtin.shell: mysql -h mysql-dev.devopsjob.online -uroot -pRobobshop@1 < /app/schema/{{component}}.sql
 
