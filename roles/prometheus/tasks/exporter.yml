@@ -2,7 +2,7 @@
   ansible.builtin.unarchive:
     src: "{{ exporter_url }}"
     dest: /opt
-    remote_src: true
+    remote_src: True
 
 - name: Copy SystemD exporter
   ansible.builtin.template:
