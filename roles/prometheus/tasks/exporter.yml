@@ -9,7 +9,7 @@
     src: exporter.service
     dest: /etc/systemd/system/node_exporter.service
 
-- name: Start Exporter Service
+- name: Start exporter Service
   ansible.builtin.systemd:
     name: node_exporter
     state: restarted
