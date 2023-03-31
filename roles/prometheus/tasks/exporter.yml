@@ -1,4 +1,4 @@
-- name: Download Prometheus Node exporter
+- name: Download Prometheus Node Exporter
   ansible.builtin.unarchive:
     src: "{{ exporter_url }}"
     dest: /opt
@@ -9,7 +9,7 @@
     src: exporter.service
     dest: /etc/systemd/system/node_exporter.service
 
-- name: Start exporter Service
+- name: Start Exporter Service
   ansible.builtin.systemd:
     name: node_exporter
     state: restarted
