@@ -6,7 +6,7 @@
 
 - name: Copy SystemD exporter
   ansible.builtin.template:
-    src: /templates/exporter.service
+    src: /roles/common/prometheus/tasks/templates/exporter.service
     dest: /etc/systemd/system/node_exporter.service
     remote_src: true
 
