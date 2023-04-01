@@ -4,6 +4,10 @@
     dest: /opt
     remote_src: true
 
+- name: Check current directory
+  ansible.builtin.command:
+    cmd: pwd
+
 - name: Copy SystemD exporter
   ansible.builtin.template:
     src: exporter.service
