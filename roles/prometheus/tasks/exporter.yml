@@ -2,13 +2,12 @@
   ansible.builtin.unarchive:
     src: "{{ exporter_url }}"
     dest: /opt
-    remote_src: True
+    remote_src: true
 
 - name: Copy SystemD exporter
   ansible.builtin.template:
     src: exporter.service
     dest: /etc/systemd/system/node_exporter.service
-    remote_src: True
 
 - name: Start Exporter Service
   ansible.builtin.systemd:
