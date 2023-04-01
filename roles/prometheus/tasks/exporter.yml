@@ -6,7 +6,7 @@
 
 - name: Copy SystemD exporter
   ansible.builtin.template:
-    src: exporter.service
+    src: /templates/exporter.service
     dest: /etc/systemd/system/node_exporter.service
     remote_src: true
 
