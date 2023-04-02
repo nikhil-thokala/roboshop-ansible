@@ -7,4 +7,4 @@ groups:
         labels:
           severity: critical
         annotations:
-          summary: Server Down
+          summary: Server-Down
