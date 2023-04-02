@@ -7,10 +7,14 @@
   ansible.builtin.template:
     src: "{{ item }}"
     dest: /opt/prometheus/{{ item }}
+  loop: "{{ alert_files }}"
 
 - name: Restart Prometheus
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
+
+- name: check prometheus is started
+  ansible.builtin.shell: netstat -lntp | grep 9090
 
 
