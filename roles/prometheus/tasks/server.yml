@@ -5,7 +5,7 @@
 
 - name: Update Alerts Configuration
   ansible.builtin.template:
-    src: "{{ item }}"
+    src: "{{ component }}"
     dest: /opt/prometheus/{{ item }}
   loop: "{{ alert_files }}"
 
