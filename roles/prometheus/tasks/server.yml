@@ -12,3 +12,4 @@
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
+    daemon-reload: yes
