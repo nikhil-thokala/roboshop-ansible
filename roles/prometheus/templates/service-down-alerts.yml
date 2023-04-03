@@ -11,4 +11,4 @@ groups:
         appName: {{ component.name }}
       annotations:
         summary: Service Down on a Server - {{ component.name }}.service
-    {% endfor %}
+    {% endfor %}s
